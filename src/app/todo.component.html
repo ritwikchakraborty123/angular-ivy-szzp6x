@@ -1,1 +1,24 @@
-<h1>{{title}} </h1>
+<h1>{{name}} </h1>
+<div>
+
+
+	<from [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+		<label for='title'></label>
+		<input type='text' name='title' id='title' formControlName='title'>
+
+		<label for='shortdescription'></label>
+		<input type='text' name='shortdescription' id='shortdescription' formControlName='shortdescription'>
+
+		<label for='expiry'></label>
+		<input type='date' name='expiry' id='expiry' formControlName='expiry'>
+
+		<button> Submit </button>
+
+
+		</form>
+
+		<h3> List </h3>
+
+
+
+</div>

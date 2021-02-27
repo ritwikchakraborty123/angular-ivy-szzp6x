@@ -21,4 +21,10 @@ export class todoComponent {
     this.record.push(this.todoForm.value);
     console.log(this.todoForm.value);
   }
+  onClick($e){
+     var target = event.target || event.srcElement || event.currentTarget;
+    console.log($e);
+    console.log(target);
+    
+  }
 }

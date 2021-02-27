@@ -13,16 +13,14 @@
 		<input type='date' name='expiry' id='expiry' formControlName='expiry'>
 		<br>
 		<button> Submit </button>
-
-		<h3> List </h3>
-		<div *ngFor="let i of record;let ind=index;">
-			{{i|json}}
-			{{ind}}
-		</div>
-
-
 	</form>
 
+	<h3> List </h3>
+	<div *ngFor="let i of record;let ind=index;">
+		<button (click)="onClick($event)" [id]="ind">{{i.shortdescription}}</button>
+<!-- {{i|json}} -->
+		<!-- {{ind}} -->
+	</div>
 
 
 

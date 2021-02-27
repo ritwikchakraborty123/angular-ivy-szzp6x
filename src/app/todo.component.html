@@ -2,22 +2,30 @@
 <div>
 
 
-	<from [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+	<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
 		<label for='title'></label>
 		<input type='text' name='title' id='title' formControlName='title'>
 
 		<label for='shortdescription'></label>
 		<input type='text' name='shortdescription' id='shortdescription' formControlName='shortdescription'>
-
+		<br>
 		<label for='expiry'></label>
 		<input type='date' name='expiry' id='expiry' formControlName='expiry'>
-
+		<br>
 		<button> Submit </button>
 
-
-		</form>
-
 		<h3> List </h3>
+		<div *ngFor="let i of record;let ind=index;">
+			{{i|json}}
+			{{ind}}
+		</div>
+
+
+	</form>
+
+
+
+
 
 
 

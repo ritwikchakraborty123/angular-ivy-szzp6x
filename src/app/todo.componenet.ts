@@ -7,13 +7,18 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
   styleUrls: ["./todo.component.css"]
 })
 export class todoComponent {
-  name = "The Todo List";
+  record = [];
+  name;
   todoForm = new FormGroup({
+    shortdescription: new FormControl(),
     title: new FormControl(),
-    shortDescription: new FormControl(),
     expiry: new FormControl()
   });
-  onSubmit(){
-    console.log(this.todoForm.controls);
+  constructor() {
+    this.name = "The Todo List";
+  }
+  onSubmit() {
+    this.record.push(this.todoForm.value);
+    console.log(this.todoForm.value);
   }
 }

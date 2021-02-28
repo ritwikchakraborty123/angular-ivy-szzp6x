@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class todoComponent {
   record = [];
   name;
+  curr = new Date();
   open=[];
   status=[];
   todoForm = new FormGroup({
@@ -17,13 +18,14 @@ export class todoComponent {
     expiry: new FormControl()
   });
   constructor() {
+  
     this.name = "The Todo List";
   }
   onSubmit() {
     this.open.push(false);
     this.status.push(0);
     this.record.push(this.todoForm.value);
-    console.log(this.todoForm.value);
+    // console.log(this.todoForm.value);
   }
   onClick(e,ind){
     //  var target = event.target || event.srcElement || event.currentTarget;
@@ -34,5 +36,21 @@ export class todoComponent {
   changestatus(e,ind){
     this.status[ind]+=1;
   }
-  
+  compare(f){
+    let dates=f.split("-");
+
+    if(parseInt(dates[0])<this.curr.getFullYear())
+    return 1;
+    else if(parseInt(dates[0])>this.curr.getFullYear())
+    return 0;
+    else if(parseInt(dates[1])<1+this.curr.getMonth())
+    return 1;
+    else if(parseInt(dates[1])>1+this.curr.getMonth())
+    return 0;
+    else if(parseInt(dates[2])<this.curr.getDate())
+    return 1;
+    
+    return 0;
+  }
+
 }

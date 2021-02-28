@@ -18,11 +18,14 @@
 	<h3> List </h3>
 	<div *ngFor="let i of record;let ind=index;">
 		<button (click)="onClick($event,ind)">{{i.title}}</button>
-    <p *ngIf="open[ind]">
-      {{i|json}}     
-    </p>
-    <p>{{status[ind]}}</p>
-    <button *ngIf="status[ind]<4" (click)="changestatus($event,ind)">change Status</button>
+		<p *ngIf="open[ind]">
+			{{i|json}}
+		</p>
+		<!-- <p>{{compare(i.expiry)}}</p> -->
+		<p *ngIf="compare(i.expiry)&&(status[ind]<4)">expired</p>
+		<p *ngIf="status[ind]>=4">completed</p>
+
+		<button *ngIf="(status[ind]<4)&&(!compare(i.expiry))" (click)="changestatus($event,ind)">change Status</button>
 
 		<!-- {{ind}} -->
 	</div>
